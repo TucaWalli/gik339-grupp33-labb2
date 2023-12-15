@@ -1,6 +1,5 @@
-// Variabel för länk samt initialize users listan
+// Variabel för länk
 const url = 'http://localhost:3000/users';
-const users = [];
 
 // Global styling
 document.documentElement.style.cssText = `
