@@ -9,6 +9,9 @@ document.documentElement.style.cssText = `
   box-sizing: border-box;
 `;
 
+// Ändra bakgrundsfärg på sidan
+document.body.style.backgroundColor = '#eef1ff';
+
 // Variabel och Styling för ulElement
 const ulElement = document.createElement('ul');
 ulElement.style.cssText = `
@@ -20,27 +23,25 @@ ulElement.style.cssText = `
   font-family: Arial, sans-serif;
 `;
 
-// Ändra bakgrundsfärg på sidan
-document.body.style.backgroundColor = '#eef1ff';
-
 // Lägg till ulElement till DOM-strukturen
 document.body.appendChild(ulElement);
 
-// Async funktion för att hämta data 
+// Async funktion för att hämta data
 async function fetchData() {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url); // vänta på svar
 
     if (!response.ok) {
+      // om fel, kasta status
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
     //Konvertera till JSON, logga data samt skapa felmeddelande vid error
     const data = await response.json();
     displayUsers(data);
-    console.log(data);
+    console.log(data); // logga data
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error); // logga fel
   }
 }
 
